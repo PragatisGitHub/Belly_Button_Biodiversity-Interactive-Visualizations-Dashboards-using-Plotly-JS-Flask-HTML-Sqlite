@@ -75,9 +75,8 @@ def sample_metadata(sample):
         sample_metadata["BBTYPE"] = result[5]
         sample_metadata["WFREQ"] = result[6]
 
-    print(sample_metadata)
+    # print(sample_metadata)
     return jsonify(sample_metadata)
-
 
 @app.route("/samples/<sample>")
 def samples(sample):
@@ -89,7 +88,6 @@ def samples(sample):
     # only keep rows with values above 1
     sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
     sample_data.sort_values(by=sample,ascending=False, inplace=True)
-    print(sample_data)
     # Format the data to send as json
     data = {
         "otu_ids": sample_data.otu_id.values.tolist(),
