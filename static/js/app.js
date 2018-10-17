@@ -170,7 +170,7 @@ d3.json('/samples/' + sample).then(function (data)
     xaxis:{title:"OTU ID",zeroline:true},
     yaxis:{title: "No. of germs in Sample",zeroline:true}
   };
-  Plotly.plot('bubble',data,layout);  
+  Plotly.newPlot('bubble',data,layout);  
 })
 };
 // Initialize the dashboard
